@@ -147,7 +147,7 @@ $(document).ready(function(){
                 bingMapsKey: this.config.bingKey
             }).then(lang.hitch(this, function (response) {
                 
-                GX.videoId = this.config.description;
+                GX.params = this.config;
 
                 (function onYouTubeIframeAPIReady() {
                   player = new YT.Player('player', {
@@ -167,6 +167,8 @@ $(document).ready(function(){
                 console.log(this.config);
                 this.map = response.map;
                 GX.map = this.map;
+                $("#mapTitle").text(GX.params.title);
+                $("#mapCredits").html(GX.params.credits);
                 // make sure map is loaded
                 if (this.map.loaded) {
                     // do something with the map
