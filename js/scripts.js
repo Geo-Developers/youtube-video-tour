@@ -76,12 +76,7 @@ function onPlayerReady(event) {
     {
       document.getElementById("vaporSegundos").value="Sorry, your browser does not support Web Workers...";
     }
-
-    /*map = new Map("mapMain", {
-      basemap: mapType,
-      center: mapCenter, // longitude, latitude
-      zoom: zoomLevel
-    });*/
+    
     map = GX.map;
 
     GX.PuntosPos = new GraphicsLayer();

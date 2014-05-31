@@ -149,6 +149,14 @@ $(document).ready(function(){
             }).then(lang.hitch(this, function (response) {
                 
                 GX.params = this.config;
+                if(!GX.params.youtubeId){
+                  GX.params.youtubeId = "PQuWhPpH3Eo";
+                  console.log("Default video");
+                }
+                if(!GX.params.gpxURI){
+                  GX.params.gpxURI = "http://www.corsproxy.com/rauljimenez.info/dev/goHero/routes/20140529_granada.gpx";
+                  console.log("Default route");
+                }
 
                 (function onYouTubeIframeAPIReady() {
                   player = new YT.Player('player', {
