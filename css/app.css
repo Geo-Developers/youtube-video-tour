@@ -1,0 +1,108 @@
+#map{
+	height: 100%;
+	width: 100%;
+}
+html{
+  width: 100%;
+  height: 100%;
+}
+body{
+  margin:0;
+  padding:0;
+  font-family: 'Open Sans', sans-serif;
+}
+#topHead{
+  height: 20px;
+  padding: 5px 10px;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 99999;
+}
+#credits{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: black;
+  text-decoration: none;
+}
+#credits-content{
+  display:none;
+}
+#video{
+  bottom: 10px;
+  right: 10px;
+  width: 510px;
+  height: 317px;
+  border: 2px solid black;
+  position: absolute;
+  z-index: 99;
+
+}
+#mapMain{
+  height: 100%;
+  width:100%;
+  top: 20px;
+}
+#ytapiplayer{
+  top:5%;
+  left: 2%;
+  bottom:5%;
+}
+#barra {
+  margin: 2px;
+  right: 1px;
+  left: 1px;
+  margin: 0 auto;
+  top: 0px;
+  display: block;
+  vertical-align: middle;
+  display: none;
+}
+
+#navegador ul{
+  list-style-type: none;
+  text-align: center;
+}
+#navegador li{
+ display: inline;
+ text-align: center;
+ margin: 0 10px 0 0;
+}
+#navegador li a {
+ padding: 2px 7px 2px 7px;
+ color: #666;
+ background-color: #eeeeee;
+ border: 1px solid #ccc;
+ text-decoration: none;
+}
+#navegador li a:hover{
+ background-color: #333333;
+ color: #ffffff;
+}
+input {
+ width: 100px;
+ height: 25px;
+ 
+}
+#player{
+  top:5%;
+  left: 2%;
+  bottom:5%;
+}
+#botonDesc
+{
+  width: 90%;
+  height: 40px;
+  margin-top: 460px;
+  padding: 2.5%;
+  margin-left: 2.5%;
+  text-align: center;
+}
+#play{
+  cursor:hand;
+  width: 50px;
+  height : 50px;
+}
+
