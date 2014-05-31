@@ -47,11 +47,11 @@
         <ul>
           <li><a href="#" id="play">Reproducir</a></li>
           <li><a href="#" id="GX.comenzar">GX.comenzar en:</a></li>
-          <li><input value=50 id="segundos"></input></li>
+          <li><input value=50 id="segundos"/></li>
           <li><a href="#" id="detener">Detener</a></li>
           <li><a href="#" id="pausar">Pausar</a></li>
           <li><a href="#" id="vapor">Segundo actual:</a></li>
-          <li><input id="vaporSegundos"></input></li>
+          <li><input id="vaporSegundos"/></li>
           <li><a href="#" id="gpx">Cargar GPX:</a></li>
           <li><input id="angulo"></input></li>
         </ul>
@@ -78,6 +78,26 @@
                 name: "arcgis_templates",
                 location: package_path + '/..'
             }]
+        };
+
+        GX = {
+          // Si queremos que nuestro video comience en un segundo determinado del video lo indicamos
+          segundoComienzo: 0,
+          pasada: 0,
+          comenzar: false,
+          //Capa donde visualizamos la posicion actual
+          PuntosPos: "",
+          //Capa para los puntos que no se ven y enlazar con los segundos del video
+          lgisCapaVerticesGPX: "",
+
+          //Array usado y cargado desde el fichero loadGPX.js con los segundos del video y la relacion de los puntos del gpx
+          arraySegundos: [],
+
+          //Punto anterior para cualcular el angulo entre dos puntos
+          puntoAnterior: "",
+
+          //GX.valor del angulo que hay entre cada punto para aplicarselo al icono
+          valor: 0.0
         };
     </script>
     <script type="text/javascript" src="//js.arcgis.com/3.9/"></script>

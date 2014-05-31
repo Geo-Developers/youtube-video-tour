@@ -4,7 +4,7 @@ function loadGPX(){
     url: routeURI,
     dataType: "xml",
     success: function(data) {
-      var parser = new GPXParser(data, map);
+      var parser = new GPXParser(data, GX.map);
       parser.centerAndZoom(data);
       parser.addTrackpointsToMap();
 
@@ -16,16 +16,7 @@ function loadGPX(){
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '100%',
-    width: '100%',
-    videoId: videoId,//'33za2TEE5K4',
-    events: {
-      'onReady': onPlayerReady
-    }
-  });
-}
+
 
 
 // 4. The API will call this function when the video player is ready.
@@ -86,16 +77,17 @@ function onPlayerReady(event) {
       document.getElementById("vaporSegundos").value="Sorry, your browser does not support Web Workers...";
     }
 
-    map = new Map("mapMain", {
+    /*map = new Map("mapMain", {
       basemap: mapType,
       center: mapCenter, // longitude, latitude
       zoom: zoomLevel
-    });
+    });*/
+    map = GX.map;
 
     GX.PuntosPos = new GraphicsLayer();
     map.addLayer(GX.PuntosPos);
 
-    GX.lgisCapaVerticesGPX= new GraphicsLayer();
+    GX.lgisCapaVerticesGPX = new GraphicsLayer();
     map.addLayer(GX.lgisCapaVerticesGPX);
 
     GX.lgisCapaVerticesGPX.on("click",function(evt){
@@ -103,9 +95,12 @@ function onPlayerReady(event) {
       player.seekTo(segundo+parseInt(GX.segundoComienzo));
     });
 
+    $.event.trigger({
+      type: "GPXReady"
+    });
     //Capturamos el evento load para que se carga el GPX al inicio 
     map.on("load",function(){
-      loadGPX();
+      
     });
 
   });

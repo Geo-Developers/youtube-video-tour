@@ -192,7 +192,7 @@ GPXParser.prototype.centerAndZoom = function(trackSegment) {
                 "xmin":minlon,"ymin":minlat,"xmax":maxlon,"ymax":maxlat,
                 "spatialReference":{"wkid":4326}
               });
-            map.setExtent(extent);
+            GX.map.setExtent(extent);
 
     });
 }
