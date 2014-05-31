@@ -131,7 +131,11 @@ $(document).ready(function(){
             domClass.remove(document.body, "app-loading");
             // your code here!
             
-            
+            $(".note").slideDown("slow");
+            $(".note").click(function(e){
+              e.preventDefault();
+              $(".note").slideUp("slow)")
+            });
             $(document).on("GPXReady", function(){
               loadGPX();
             });

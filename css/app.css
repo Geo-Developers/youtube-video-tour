@@ -30,6 +30,17 @@ body{
 #credits-content{
   display:none;
 }
+.note{
+  display: none;
+  text-align: center;
+  color: white;
+  background-color: black;
+  padding: 5px 10px;
+  font-size: .9em;
+}
+.note a{
+  color: yellow;
+}
 #video{
   bottom: 10px;
   right: 10px;
@@ -50,59 +61,39 @@ body{
   left: 2%;
   bottom:5%;
 }
-#barra {
-  margin: 2px;
-  right: 1px;
-  left: 1px;
-  margin: 0 auto;
-  top: 0px;
-  display: block;
-  vertical-align: middle;
-  display: none;
-}
-
-#navegador ul{
-  list-style-type: none;
-  text-align: center;
-}
-#navegador li{
- display: inline;
- text-align: center;
- margin: 0 10px 0 0;
-}
-#navegador li a {
- padding: 2px 7px 2px 7px;
- color: #666;
- background-color: #eeeeee;
- border: 1px solid #ccc;
- text-decoration: none;
-}
-#navegador li a:hover{
- background-color: #333333;
- color: #ffffff;
-}
-input {
- width: 100px;
- height: 25px;
- 
-}
 #player{
   top:5%;
   left: 2%;
   bottom:5%;
 }
-#botonDesc
-{
-  width: 90%;
-  height: 40px;
-  margin-top: 460px;
-  padding: 2.5%;
-  margin-left: 2.5%;
-  text-align: center;
+#barra{
+  display: none;
 }
-#play{
-  cursor:hand;
-  width: 50px;
-  height : 50px;
+@media only screen and (max-width: 530px) {
+  #mapMain{
+    height: 50%;
+  }
+  #video{
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+  }
 }
-
+@media only screen and (min-width: 531px) and (max-width: 641px) {
+#mapMain{
+    width: 50%;
+  }
+  #credits{
+    display: none;
+  }
+  #video{
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+  }
+  .note{
+    width: 50%;
+  }
+}
