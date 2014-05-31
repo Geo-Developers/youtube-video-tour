@@ -1,7 +1,7 @@
 //Funcion que carga el gpx, con la extension modificada a xml
 function loadGPX(){
     $.ajax({
-    url: routeURI,
+    url: GX.params.gpxURI,
     dataType: "xml",
     success: function(data) {
       var parser = new GPXParser(data, GX.map);

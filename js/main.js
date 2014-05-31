@@ -95,7 +95,8 @@ $(document).ready(function(){
                     $(this).attr('src', src);
 
                     });
-                    $("#credits").click(function(){
+                    $("#credits").click(function(e){
+                      e.preventDefault();
                     $("#credits-content").modal();;  
                     });
                     });
@@ -153,7 +154,7 @@ $(document).ready(function(){
                   player = new YT.Player('player', {
                     height: '100%',
                     width: '100%',
-                    videoId: GX.videoId,//'33za2TEE5K4',
+                    videoId: GX.params.youtubeId,//'33za2TEE5K4',
                     events: {
                       'onReady': onPlayerReady
                     }
@@ -164,11 +165,17 @@ $(document).ready(function(){
                 // any custom options you defined for the template. In this example that is the 'theme' property.
                 // Here' we'll use it to update the application to match the specified color theme.
                 
-                console.log(this.config);
+                //console.log(this.config);
                 this.map = response.map;
                 GX.map = this.map;
                 $("#mapTitle").text(GX.params.title);
                 $("#mapCredits").html(GX.params.credits);
+
+                GX.params.startAt = parseInt(GX.params.startAt)
+                if(GX.params.startAt > 0){
+                  GX.segundoComienzo = GX.params.startAt;
+                  GX.comenzar = true;
+                }
                 // make sure map is loaded
                 if (this.map.loaded) {
                     // do something with the map
