@@ -76,6 +76,9 @@ h3{
   display: none;
 }
 @media only screen and (max-width: 530px) {
+  .loading-indicator{
+    display: none!important;
+  }
   #mapMain{
     height: 50%;
   }
@@ -87,6 +90,9 @@ h3{
   }
 }
 @media only screen and (min-width: 531px) and (max-width: 641px) {
+.loading-indicator{
+    display: none!important;
+  }
 #mapMain{
     width: 50%;
   }
