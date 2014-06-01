@@ -7,5 +7,8 @@ You can find it at [ArcGIS.com Repository](http://hhkaos.maps.arcgis.com/home/it
 
 <img src="https://raw.githubusercontent.com/hhkaos/arcgis-video-tour/master/images/screenshot_desktop.png" style="width:100%">
 
-# How to use it
-_To Do: Youtube video_
+
+# To Do List
+Add your [suggestions here](https://gist.github.com/hhkaos/bd14428bbd2678495040)
+
+<script src="https://gist.github.com/hhkaos/bd14428bbd2678495040.js"></script>
