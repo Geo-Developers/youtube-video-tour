@@ -20,6 +20,9 @@ body{
   position: relative;
   z-index: 99999;
 }
+#graphicsLayer1_layer circle{
+  cursor: pointer;
+}
 #credits{
   position: absolute;
   right: 10px;
@@ -40,6 +43,9 @@ body{
 }
 .note a{
   color: yellow;
+}
+h3{
+  margin-top: 0;  
 }
 #video{
   bottom: 10px;

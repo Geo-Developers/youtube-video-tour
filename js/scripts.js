@@ -24,7 +24,7 @@ function onPlayerReady(event) {
   //event.target.playVideo();
   require(["esri/map",
   "esri/symbols/SimpleMarkerSymbol",
-  "esri/Color",
+  "dojo/_base/Color",
   "esri/graphic",
   "esri/layers/GraphicsLayer",
   "esri/symbols/PictureMarkerSymbol"], 
@@ -66,7 +66,7 @@ function onPlayerReady(event) {
           sms.setColor(new esri.Color([255,0,0,1]))
           var graphic = new Graphic(punto, sms);  
           GX.PuntosPos.add(graphic);*/
-          map.centerAt(punto);
+          //map.centerAt(punto);
          
 
         }

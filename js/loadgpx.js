@@ -61,7 +61,7 @@ GPXParser.prototype.addTrackSegmentToMap = function(trackSegment, colour,width) 
         "esri/geometry/Polyline",
         "esri/symbols/SimpleLineSymbol",
         "esri/graphic",
-        "esri/Color",
+        "dojo/_base/Color",
         "esri/SpatialReference",
         "esri/symbols/SimpleMarkerSymbol"],
     function(Point,
@@ -117,7 +117,8 @@ GPXParser.prototype.addTrackSegmentToMap = function(trackSegment, colour,width) 
                 //Creamos un objeto punto que no se va a ver para poder pinchar sobre la linea y posicionarnos
                 // en ese segundo del video
                 var sms = new SimpleMarkerSymbol();
-                sms.setColor(new esri.Color([0,0,255,0.0]))
+                sms.setColor(new Color([0,0,255,0.0]));
+                sms.setSize(20);
                 sms.setOutline(null);
                 var segundoEnVideo=Math.floor((dt2-dtComienzo)/1000);
                 var graphic = new Graphic(latlng, sms,{hora:segundoEnVideo});
@@ -128,7 +129,7 @@ GPXParser.prototype.addTrackSegmentToMap = function(trackSegment, colour,width) 
             var polyline =  new Polyline(new SpatialReference({wkid:4326}));
             polyline.addPath(pointarray);
             var sls = new SimpleLineSymbol();
-            sls.setColor(new esri.Color([255,0,0]))
+            sls.setColor(new Color([255,0,0]))
             var graphic = new Graphic(polyline, sls);
             map.graphics.add(graphic);
 
@@ -180,7 +181,7 @@ GPXParser.prototype.centerAndZoom = function(trackSegment) {
             }
 
             if((minlat == maxlat) && (minlat == 0)) {
-                map.centerAt(new Point( -122.942333,49.327667));
+//                map.centerAt(new Point( -122.942333,49.327667));
                 return;
             }
 
