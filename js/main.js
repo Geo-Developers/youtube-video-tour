@@ -15,6 +15,7 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
+ try{
 define([
     "dojo/ready",
     "dojo/_base/declare",
@@ -42,63 +43,63 @@ define([
                 this.config = config;
                 // document ready
                 ready(lang.hitch(this, function () {
-                    
+
                     //supply either the webmap id or, if available, the item info
                     var itemInfo = this.config.itemInfo || this.config.webmap;
                     this._createWebMap(itemInfo);
-$(document).ready(function(){
-                    /////////// Código para cargar el API HTML5 de youtube
-                    // 2. This code loads the IFrame Player API code asynchronously.
-                    var tag = document.createElement('script');
+                    $(document).ready(function(){
+                        /////////// Código para cargar el API HTML5 de youtube
+                        // 2. This code loads the IFrame Player API code asynchronously.
+                        var tag = document.createElement('script');
 
-                    tag.src = "https://www.youtube.com/iframe_api";
-                    var firstScriptTag = document.getElementsByTagName('script')[0];
-                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                        tag.src = "https://www.youtube.com/iframe_api";
+                        var firstScriptTag = document.getElementsByTagName('script')[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                    //Evento del boton reproducir
-                    $('#play').click(function(){
-                    if (player) {
-                      player.playVideo();
-                    }
-                    });
+                        //Evento del boton reproducir
+                        $('#play').click(function(){
+                            if (player) {
+                              player.playVideo();
+                            }
+                        });
 
-                    //Evento del boton detener
-                    $('#detener').click(function(){
-                    player.stopVideo();
-                    });
-                    //Evento del boton pausar
-                    $('#pausar').click(function(){
-                    player.pauseVideo();
-                    });
-                    //Evento del boton GX.comenzar en...
-                    $('#GX.comenzar').click(function(){
-                    var sec=$("#segundos").val()
-                    player.seekTo(sec);
-                    GX.segundoComienzo=sec;
-                    GX.comenzar=true;
-                    });
+                        //Evento del boton detener
+                        $('#detener').click(function(){
+                            player.stopVideo();
+                        });
+                        //Evento del boton pausar
+                        $('#pausar').click(function(){
+                            player.pauseVideo();
+                        });
+                        //Evento del boton GX.comenzar en...
+                        $('#GX.comenzar').click(function(){
+                            var sec=$("#segundos").val()
+                            player.seekTo(sec);
+                            GX.segundoComienzo=sec;
+                            GX.comenzar=true;
+                        });
 
-                    ////////Evento del boton cargar GPX
-                    $('#gpx').click(loadGPX);
+                        ////////Evento del boton cargar GPX
+                        $('#gpx').click(loadGPX);
 
-                    $("img").click(function() { 
-                    var origsrc = $(this).attr('src');
-                    var src = '';
-                    if (origsrc == 'images/play.png'){
-                      src = 'images/pause.png';
-                      player.playVideo();
-                    }
-                    if (origsrc == 'images/pause.png'){
-                      src = 'images/play.png';
-                      player.pauseVideo();
-                    }
-                    $(this).attr('src', src);
+                        $("img").click(function() { 
+                            var origsrc = $(this).attr('src');
+                            var src = '';
+                            if (origsrc == 'images/play.png'){
+                              src = 'images/pause.png';
+                              player.playVideo();
+                          }
+                          if (origsrc == 'images/pause.png'){
+                              src = 'images/play.png';
+                              player.pauseVideo();
+                          }
+                          $(this).attr('src', src);
 
-                    });
-                    $("#credits").click(function(e){
-                      e.preventDefault();
-                    $("#credits-content").modal();;  
-                    });
+                      });
+                        $("#credits").click(function(e){
+                          e.preventDefault();
+                          $("#credits-content").modal();;  
+                      });
                     });
 
                 }));
@@ -204,3 +205,6 @@ $(document).ready(function(){
         }
     });
 });
+} catch (e) {
+  Rollbar.error("Error in main.js", e);
+}

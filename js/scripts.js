@@ -1,3 +1,4 @@
+try{
 //Funcion que carga el gpx, con la extension modificada a xml
 function loadGPX(){
     $.ajax({
@@ -111,4 +112,6 @@ function calculoAngulo(x0,y0,x1,y1){
     Az = Az + 400 
   return Az +60;
 }
-
+} catch (e) {
+  Rollbar.error("Problem on scripts.js", e);
+}

@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
-    <title>Video Tour using GPX and Youtube</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-    <!--jQuery-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script type='text/javascript' src='js/jquery.simplemodal.js'></script>
-    <script type='text/javascript' src='js/modal.js'></script>
-    <meta charset="utf-8">
-    <!-- Define the versions of IE that will be used to render the page. See Microsoft documentation for details. Optional. -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <!-- End Responsive -->
-    <!-- Use protocol relative urls that way if the browser is viewing the page via HTTPS the js/css file will be requested using the HTTPS protocol -->
-    <link rel="stylesheet"  href="//js.arcgis.com/3.8/js/esri/css/esri.css">
+  <script>
+  var _rollbarConfig = {
+      accessToken: "3e08adfbc26f468c9a25ca48a55f75a3",
+      captureUncaught: true,
+      payload: {
+          environment: "production"
+      }
+  };
+  !function(a,b){function c(b){this.shimId=++h,this.notifier=null,this.parentShim=b,this.logger=function(){},a.console&&void 0===a.console.shimId&&(this.logger=a.console.log)}function d(b,c,d){!d[4]&&a._rollbarWrappedError&&(d[4]=a._rollbarWrappedError,a._rollbarWrappedError=null),b.uncaughtError.apply(b,d),c&&c.apply(a,d)}function e(b){var d=c;return g(function(){if(this.notifier)return this.notifier[b].apply(this.notifier,arguments);var c=this,e="scope"===b;e&&(c=new d(this));var f=Array.prototype.slice.call(arguments,0),g={shim:c,method:b,args:f,ts:new Date};return a._rollbarShimQueue.push(g),e?c:void 0})}function f(a,b){if(b.hasOwnProperty&&b.hasOwnProperty("addEventListener")){var c=b.addEventListener;b.addEventListener=function(b,d,e){c.call(this,b,a.wrap(d),e)};var d=b.removeEventListener;b.removeEventListener=function(a,b,c){d.call(this,a,b._wrapped||b,c)}}}function g(a,b){return b=b||this.logger,function(){try{return a.apply(this,arguments)}catch(c){b("Rollbar internal error:",c)}}}var h=0;c.init=function(a,b){var e=b.globalAlias||"Rollbar";if("object"==typeof a[e])return a[e];a._rollbarShimQueue=[],a._rollbarWrappedError=null,b=b||{};var h=new c;return g(function(){if(h.configure(b),b.captureUncaught){var c=a.onerror;a.onerror=function(){var a=Array.prototype.slice.call(arguments,0);d(h,c,a)};var g,i,j=["EventTarget","Window","Node","ApplicationCache","AudioTrackList","ChannelMergerNode","CryptoOperation","EventSource","FileReader","HTMLUnknownElement","IDBDatabase","IDBRequest","IDBTransaction","KeyOperation","MediaController","MessagePort","ModalWindow","Notification","SVGElementInstance","Screen","TextTrack","TextTrackCue","TextTrackList","WebSocket","WebSocketWorker","Worker","XMLHttpRequest","XMLHttpRequestEventTarget","XMLHttpRequestUpload"];for(g=0;g<j.length;++g)i=j[g],a[i]&&a[i].prototype&&f(h,a[i].prototype)}return a[e]=h,h},h.logger)()},c.prototype.loadFull=function(a,b,c,d){var e=g(function(){var a=b.createElement("script"),e=b.getElementsByTagName("script")[0];a.src=d.rollbarJsUrl,a.async=!c,a.onload=f,e.parentNode.insertBefore(a,e)},this.logger),f=g(function(){if(void 0===a._rollbarPayloadQueue)for(var b,c,d,e,f=new Error("rollbar.js did not load");b=a._rollbarShimQueue.shift();)for(d=b.args,e=0;e<d.length;++e)if(c=d[e],"function"==typeof c){c(f);break}},this.logger);g(function(){c?e():a.addEventListener?a.addEventListener("load",e,!1):a.attachEvent("onload",e)},this.logger)()},c.prototype.wrap=function(b){try{if("function"!=typeof b)return b;if(b._isWrap)return b;if(!b._wrapped){b._wrapped=function(){try{return b.apply(this,arguments)}catch(c){throw a._rollbarWrappedError=c,c}},b._wrapped._isWrap=!0;for(var c in b)b.hasOwnProperty(c)&&(b._wrapped[c]=b[c])}return b._wrapped}catch(d){return b}};for(var i="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError".split(","),j=0;j<i.length;++j)c.prototype[i[j]]=e(i[j]);var k="//d37gvrvc0wt4s1.cloudfront.net/js/v1.0/rollbar.min.js";_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||k;var l=c.init(a,_rollbarConfig);l.loadFull(a,b,!1,_rollbarConfig)}(window,document);
+  </script>
 
-    <!-- css diseño -->
-    <link rel="stylesheet" href="css/app.css">
-    <link type='text/css' href='css/modal.css' rel='stylesheet' media='screen' />
-    <!-- Load any application specific styles -->
-    <link rel="stylesheet" href="css/main.css">
+  <title>Video Tour using GPX and Youtube</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <!--jQuery-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script type='text/javascript' src='js/jquery.simplemodal.js'></script>
+  <script type='text/javascript' src='js/modal.js'></script>
+  <meta charset="utf-8">
+  <!-- Define the versions of IE that will be used to render the page. See Microsoft documentation for details. Optional. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <!-- End Responsive -->
+  <!-- Use protocol relative urls that way if the browser is viewing the page via HTTPS the js/css file will be requested using the HTTPS protocol -->
+  <link rel="stylesheet"  href="//js.arcgis.com/3.8/js/esri/css/esri.css">
 
-    <script src="js/config.js" type="text/javascript"></script>
-    <!-- lectura de fichero gpx-->
-    <script src="js/loadgpx.js" type="text/javascript"></script>
+  <!-- css diseño -->
+  <link rel="stylesheet" href="css/app.css">
+  <link type='text/css' href='css/modal.css' rel='stylesheet' media='screen' />
+  <!-- Load any application specific styles -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/config.js" type="text/javascript"></script>
+  <!-- lectura de fichero gpx-->
+  <script src="js/loadgpx.js" type="text/javascript"></script>
 </head>
 <body class="claro app-loading">
-    <div class="loading-indicator">
-        <div class="loading-message" id="loading_message"></div>
-    </div>
-    <div class="note">
-        Click anywhere on the route to see that part of the journey. <a href="#">(close)</a>
-    </div>
-    <header id="topHead">
-        <span id="mapTitle">Video Tour</span>
+  <div class="loading-indicator">
+    <div class="loading-message" id="loading_message"></div>
+  </div>
+  <div class="note">
+    Click anywhere on the route to see that part of the journey. <a href="#">(close)</a>
+  </div>
+  <header id="topHead">
+    <span id="mapTitle">Video Tour</span>
     <a href="#" id="credits" class='basic'>
       Credits
     </a>
-    </header>
+  </header>
 
-    <div id="general">
+  <div id="general">
     <div id="barra">
       <div id="navegador">
         <ul>
@@ -61,29 +71,31 @@
       </div>
     </div>
     <div id="video">
-        <div id="player"></div>
+      <div id="player"></div>
     </div>
+    
     <!-- The ArcGIS API for JavaScript provides bidirectional support.  When viewing the application in an right to left (rtl) language like Hebrew and Arabic the map needs to remain in left-to-right (ltr) mode. Specify this by setting the dir attribute on the div to ltr. -->
-   <div id="mapDiv" dir="ltr"></div>
+    <div id="mapDiv" dir="ltr"></div>
+
     <script type="text/javascript">
-        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-        var dojoConfig = {
-            async: true,
+      var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+      var dojoConfig = {
+        async: true,
             // The locationPath logic below may look confusing but all its doing is
             // enabling us to load the api from a CDN and load local modules from the correct location.
             packages: [{
-                name: "application",
-                location: package_path + '/js'
+              name: "application",
+              location: package_path + '/js'
             }, {
-                name: "config",
-                location: package_path + '/config'
+              name: "config",
+              location: package_path + '/config'
             }, {
-                name: "arcgis_templates",
-                location: package_path + '/..'
+              name: "arcgis_templates",
+              location: package_path + '/..'
             }]
-        };
+          };
 
-        GX = {
+          GX = {
           // Si queremos que nuestro video comience en un segundo determinado del video lo indicamos
           segundoComienzo: 0,
           pasada: 0,
@@ -102,49 +114,41 @@
           //GX.valor del angulo que hay entre cada punto para aplicarselo al icono
           valor: 0.0
         };
-    </script>
-    <script type="text/javascript" src="//js.arcgis.com/3.8/"></script>
-    <script type="text/javascript">
+      </script>
+      <script type="text/javascript" src="//js.arcgis.com/3.8/"></script>
+      <script type="text/javascript">
+        try{
         require([
-            "application/template",
-            "application/main"
-        ], function(
-            Template,
-            Main
+          "application/template",
+          "application/main"
+          ], function(
+          Template,
+          Main
         ){
-            // create the template. This will take care of all the logic required for template applications
-            var myTemplate = new Template({
-                /*
-                webmap: true,
-                groupInfo: false,
-                groupItems: false,
-                groupParams: {
-                    sortField: "modified",
-                    sortOrder: "desc",
-                    num: 9,
-                    start: 0
-                }
-                */
-            });
-            // create my main application. Start placing your logic in the main.js file.
-            var myApp = new Main();
-            // start template
-            myTemplate.startup().then(function(config) {
-                // The config object contains the following properties: helper services, (optionally)
-                // i18n, appid, webmap and any custom values defined by the application.
-                // In this example we have one called theme.
-                myApp.startup(config);
-            }, function(error) {
-                // something went wrong. Let's report it.
-                myApp.reportError(error);
-            });
+          // create the template. This will take care of all the logic required for template applications
+          var myTemplate = new Template({});
+          // create my main application. Start placing your logic in the main.js file.
+          var myApp = new Main();
+          // start template
+          myTemplate.startup().then(function(config) {
+              // The config object contains the following properties: helper services, (optionally)
+              // i18n, appid, webmap and any custom values defined by the application.
+              // In this example we have one called theme.
+            myApp.startup(config);
+          }, function(error) {
+            // something went wrong. Let's report it.
+            myApp.reportError(error);
+          });
         });
+        } catch (e) {
+          Rollbar.error("Problem trying to create the template", e);
+        }
     </script>
     <!-- modal content -->
     <div id="credits-content">
       <h3>Credits</h3>
       <div id="mapCredits"></div>
-    
+
       <p>Template at <a href="http://bit.ly/1kvgR9s" target="blank">ArcGIS Online</a> | Source code at <a href="https://github.com/saik003/Apps-JavaScript/tree/master/GpxGO" target="blank">GitHub.</a></p>
     </div>
     <!-- preload the images -->
@@ -154,14 +158,15 @@
     <script src="js/scripts.js" type="text/javascript"></script>
 
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-46854003-5', 'rauljimenez.info');
-  ga('send', 'pageview');
+      ga('create', 'UA-46854003-5', 'rauljimenez.info');
+      ga('send', 'pageview');
 
-</script>
-</body>
+    </script>
+    </div>
+  </body>
 </html>
