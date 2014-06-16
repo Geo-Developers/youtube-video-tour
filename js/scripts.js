@@ -1,23 +1,28 @@
 try{
 //Funcion que carga el gpx, con la extension modificada a xml
 var loadGPX = function (){
-  $.ajax({
-    url: GX.params.gpxURI,
-    dataType: "xml",
-    success: function(data) {
-      var parser = new GPXParser(data, GX.map);
-      parser.centerAndZoom(data);
-      parser.addTrackpointsToMap();
-      
-      $("body").removeClass("app-loading");
+  try{
+    $.ajax({
+      url: GX.params.gpxURI,
+      dataType: "xml",
+      success: function(data) {
+        var parser = new GPXParser(data, GX.map);
+        parser.centerAndZoom(data);
+        parser.addTrackpointsToMap();
+        
+        $("body").removeClass("app-loading");
 
-      $(".note").slideDown("slow");
-      $(".note").click(function(e){
-        e.preventDefault();
-        $(".note").slideUp("slow)")
-      });
-    }
-  });
+        $(".note").slideDown("slow");
+        $(".note").click(function(e){
+          e.preventDefault();
+          $(".note").slideUp("slow)")
+        });
+      }
+    });
+  }catch(e){
+    console.log("Error loading the GPX file");
+    loadGPX();
+  }
 }
 
 
