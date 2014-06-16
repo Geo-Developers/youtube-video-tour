@@ -1,7 +1,8 @@
 try{
 //Funcion que carga el gpx, con la extension modificada a xml
-var loadGPX = function (){
-  try{
+try{
+  var loadGPX = function (){
+  
     $.ajax({
       url: GX.params.gpxURI,
       dataType: "xml",
@@ -19,10 +20,10 @@ var loadGPX = function (){
         });
       }
     });
-  }catch(e){
-    console.log("Error loading the GPX file");
-    loadGPX();
   }
+}catch(e){
+  console.log("Error loading the GPX file");
+  loadGPX();
 }
 
 
