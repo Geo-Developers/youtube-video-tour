@@ -1,14 +1,21 @@
 try{
 //Funcion que carga el gpx, con la extension modificada a xml
-function loadGPX(){
-    $.ajax({
+var loadGPX = function (){
+  $.ajax({
     url: GX.params.gpxURI,
     dataType: "xml",
     success: function(data) {
       var parser = new GPXParser(data, GX.map);
       parser.centerAndZoom(data);
       parser.addTrackpointsToMap();
+      
+      $("body").removeClass("app-loading");
 
+      $(".note").slideDown("slow");
+      $(".note").click(function(e){
+        e.preventDefault();
+        $(".note").slideUp("slow)")
+      });
     }
   });
 }
@@ -30,7 +37,7 @@ function onPlayerReady(event) {
   "esri/layers/GraphicsLayer",
   "esri/symbols/PictureMarkerSymbol"], 
   function(Map,SimpleMarkerSymbol,Color,Graphic,GraphicsLayer,PictureMarkerSymbol) {
-    
+
     if(typeof(Worker) !== "undefined")
     {
       if(typeof(w) == "undefined")
@@ -63,13 +70,6 @@ function onPlayerReady(event) {
           var graphic = new Graphic(punto, pictureMarkerSymbol);  
           GX.PuntosPos.add(graphic);
 
-          /*var sms = new SimpleMarkerSymbol();
-          sms.setColor(new esri.Color([255,0,0,1]))
-          var graphic = new Graphic(punto, sms);  
-          GX.PuntosPos.add(graphic);*/
-          //map.centerAt(punto);
-         
-
         }
       };
     }
@@ -91,13 +91,9 @@ function onPlayerReady(event) {
       player.seekTo(segundo+parseInt(GX.segundoComienzo));
     });
 
-    $.event.trigger({
-      type: "GPXReady"
-    });
-    //Capturamos el evento load para que se carga el GPX al inicio 
-    map.on("load",function(){
-      
-    });
+    
+    loadGPX();
+  
 
   });
 }

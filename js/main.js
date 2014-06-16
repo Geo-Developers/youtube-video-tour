@@ -15,6 +15,14 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
+window.hotFixYoutube = function (){
+    if($("#video iframe").length == 0 && YT){
+        onYouTubeIframeAPIReady();
+    }else{
+        setTimeout(hotFixYoutube,1000);
+    }
+}
+
  try{
 define([
     "dojo/ready",
@@ -47,60 +55,23 @@ define([
                     //supply either the webmap id or, if available, the item info
                     var itemInfo = this.config.itemInfo || this.config.webmap;
                     this._createWebMap(itemInfo);
-                    $(document).ready(function(){
-                        /////////// Código para cargar el API HTML5 de youtube
-                        // 2. This code loads the IFrame Player API code asynchronously.
-                        var tag = document.createElement('script');
+                    
+                    /////////// Código para cargar el API HTML5 de youtube
+                    // 2. This code loads the IFrame Player API code asynchronously.
+                    var tag = document.createElement('script');
+                    
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    var firstScriptTag = document.getElementsByTagName('script')[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                        tag.src = "https://www.youtube.com/iframe_api";
-                        var firstScriptTag = document.getElementsByTagName('script')[0];
-                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                        //Evento del boton reproducir
-                        $('#play').click(function(){
-                            if (player) {
-                              player.playVideo();
-                            }
-                        });
-
-                        //Evento del boton detener
-                        $('#detener').click(function(){
-                            player.stopVideo();
-                        });
-                        //Evento del boton pausar
-                        $('#pausar').click(function(){
-                            player.pauseVideo();
-                        });
-                        //Evento del boton GX.comenzar en...
-                        $('#GX.comenzar').click(function(){
-                            var sec=$("#segundos").val()
-                            player.seekTo(sec);
-                            GX.segundoComienzo=sec;
-                            GX.comenzar=true;
-                        });
-
-                        ////////Evento del boton cargar GPX
-                        $('#gpx').click(loadGPX);
-
-                        $("img").click(function() { 
-                            var origsrc = $(this).attr('src');
-                            var src = '';
-                            if (origsrc == 'images/play.png'){
-                              src = 'images/pause.png';
-                              player.playVideo();
-                          }
-                          if (origsrc == 'images/pause.png'){
-                              src = 'images/play.png';
-                              player.pauseVideo();
-                          }
-                          $(this).attr('src', src);
-
-                      });
-                        $("#credits").click(function(e){
-                          e.preventDefault();
-                          $("#credits-content").modal();;  
-                      });
-                    });
+                    ////////Evento del boton cargar GPX
+                    $('#gpx').click(loadGPX);
+                    //$('body').removeClass("app-loading");
+                    $("#credits").click(function(e){
+                      e.preventDefault();
+                      $("#credits-content").modal();;  
+                  });
+                    
 
                 }));
             } else {
@@ -128,17 +99,11 @@ define([
         },
         // Map is ready
         _mapLoaded: function () {
-            // remove loading class from body
-            domClass.remove(document.body, "app-loading");
-            // your code here!
-            
-            $(".note").slideDown("slow");
-            $(".note").click(function(e){
-              e.preventDefault();
-              $(".note").slideUp("slow)")
-            });
+            hotFixYoutube();
+
             $(document).on("GPXReady", function(){
               loadGPX();
+
             });
 
             
@@ -162,8 +127,8 @@ define([
                   GX.params.gpxURI = "http://www.corsproxy.com/rauljimenez.info/dev/goHero/routes/20140529_granada.gpx";
                   console.log("Default route");
                 }
-
-                (function onYouTubeIframeAPIReady() {
+                
+                window.onYouTubeIframeAPIReady = function () {
                   player = new YT.Player('player', {
                     height: '100%',
                     width: '100%',
@@ -171,8 +136,10 @@ define([
                     events: {
                       'onReady': onPlayerReady
                     }
-                  });
-                })();
+                  });  
+                };
+                
+
                 // Once the map is created we get access to the response which provides important info
                 // such as the map, operational layers, popup info and more. This object will also contain
                 // any custom options you defined for the template. In this example that is the 'theme' property.
