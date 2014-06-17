@@ -72,6 +72,7 @@ try {
             Color,
             SpatialReference,
             SimpleMarkerSymbol) {  
+
                 //Comprobamos si el gpx tiene coordenadas
                 var trackpoints = trackSegment.getElementsByTagName("trkpt");
                 if(trackpoints.length == 0) {
@@ -157,7 +158,6 @@ try {
                 var maxlon = 0;
 
                 for(var pointtype = 0; pointtype < pointlist.length; pointtype++) {
-
                     // Center the map and zoom on the given segment.
                     var trackpoints = trackSegment.getElementsByTagName(
                             pointlist[pointtype]);
@@ -200,7 +200,6 @@ try {
     }
 
     GPXParser.prototype.addTrackpointsToMap = function() {
-
         var tracks = this.xmlDoc.documentElement.getElementsByTagName("trk");
         for(var i = 0; i < tracks.length; i++) {
             this.addTrackToMap(tracks[i], this.trackcolour, this.trackwidth);
