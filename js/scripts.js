@@ -1,30 +1,31 @@
 try{
 //Funcion que carga el gpx, con la extension modificada a xml
-try{
-  var loadGPX = function (){
-  
-    $.ajax({
-      url: GX.params.gpxURI,
-      dataType: "xml",
-      success: function(data) {
-        var parser = new GPXParser(data, GX.map);
-        parser.centerAndZoom(data);
-        parser.addTrackpointsToMap();
-        
-        $("body").removeClass("app-loading");
 
-        $(".note").slideDown("slow");
-        $(".note").click(function(e){
-          e.preventDefault();
-          $(".note").slideUp("slow)")
-        });
-      }
-    });
-  }
-}catch(e){
-  console.log("Error loading the GPX file");
-  loadGPX();
+window.loadGPX = function (){
+
+  $.ajax({
+    url: GX.params.gpxURI,
+    dataType: "xml",
+    success: function(data) {
+      var parser = new GPXParser(data, GX.map);
+      parser.centerAndZoom(data);
+      parser.addTrackpointsToMap();
+      console.log("Entro");
+      $("body").removeClass("app-loading");
+
+      $(".note").slideDown("slow");
+      $(".note").click(function(e){
+        e.preventDefault();
+        $(".note").slideUp("slow)")
+      });
+    },
+    error: function(jqXHR, textStatus, errorThrown){
+      console.log("Error loading the GPX file: ", errorThrown);
+      loadGPX();
+    }
+  });
 }
+
 
 
 // 3. This function creates an <iframe> (and YouTube player)
