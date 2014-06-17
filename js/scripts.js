@@ -2,11 +2,14 @@ try{
 //Funcion que carga el gpx, con la extension modificada a xml
 
 window.loadGPX = function (){
-
-  $.ajax({
+  
+  dojo.xhrGet({
+    // The URL to request
     url: GX.params.gpxURI,
-    dataType: "xml",
-    success: function(data) {
+    handleAs: "xml",
+    // The method that handles the request's successful result
+    // Handle the response any way you'd like!
+    load: function(data) {
       var parser = new GPXParser(data, GX.map);
       parser.centerAndZoom(data);
       parser.addTrackpointsToMap();
@@ -18,13 +21,6 @@ window.loadGPX = function (){
         e.preventDefault();
         $(".note").slideUp("slow)")
       });
-    },
-    error: function(jqXHR, textStatus, errorThrown){
-      console.log("Error loading the GPX file: ", errorThrown);
-      window.errorThrown = errorThrown;
-      return 0;
-      //loadGPX();
-
     }
   });
 }
