@@ -22,7 +22,7 @@ window.loadGPX = function (){
     error: function(jqXHR, textStatus, errorThrown){
       console.log("Error loading the GPX file: ", errorThrown);
       return 0;
-      loadGPX();
+      //loadGPX();
 
     }
   });
