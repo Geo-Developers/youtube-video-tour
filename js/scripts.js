@@ -21,6 +21,8 @@ window.loadGPX = function (){
       });
     },
     error: function(jqXHR, textStatus, errorThrown){
+      console.log("jqXHR=",jqXHR);
+      console.log("textStatus=",textStatus);
       console.log("Error loading the GPX file: ", errorThrown);
       window.errorThrown = errorThrown;
       return 0;
