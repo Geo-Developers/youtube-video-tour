@@ -4,6 +4,13 @@
 		"fields": [{
 			"type": "paragraph",
 			"value": "* Configure your template. <a href='#'>More info</a>."
+		},{
+			"type": "webmap",
+			"fieldName": "webmap",
+			"label": "Web Map",
+			"tooltip": "",
+			"stringFieldOption": "textbox",
+			"placeHolder": "d8855ee4d3d74413babfb0f41203b168"
 		}, {
 			"type": "string",
 			"fieldName": "title",
@@ -17,7 +24,7 @@
 			"label": "Youtube ID",
 			"tooltip": "",
 			"stringFieldOption": "textbox",
-			"placeHolder": "Ex. PQuWhPpH3Eo"
+			"placeHolder": "Ex. KHeIgs3TdSQ"
 		}, {
 			"type": "string",
 			"fieldName": "gpxURI",

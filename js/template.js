@@ -345,6 +345,7 @@ define([
             deferred = new Deferred();
             // If we want to get the webmap
             if (this.options.webmap) {
+                this.config.webmap = this.config.webmap || "ce3d67d7783349dbbf3fa67aa899308c";
                 if (this.config.webmap) {
                     arcgisUtils.getItem(this.config.webmap).then(lang.hitch(this, function (itemInfo) {
                         // ArcGIS.com allows you to set an application extent on the application item. Overwrite the

@@ -2,7 +2,12 @@ try{
 //Funcion que carga el gpx, con la extension modificada a xml
 
 window.loadGPX = function (){
-
+  $.ajaxSetup({
+    crossDomain: true,
+    xhrFields: {
+      withCredentials: true
+    }
+  });
 
   $.ajax({
     url: GX.params.gpxURI,
