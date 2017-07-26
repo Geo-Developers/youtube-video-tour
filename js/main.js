@@ -120,11 +120,11 @@ define([
                 
                 GX.params = this.config;
                 if(!GX.params.youtubeId){
-                  GX.params.youtubeId = "PQuWhPpH3Eo";
+                  GX.params.youtubeId = "KHeIgs3TdSQ";
                   console.log("Default video");
                 }
                 if(!GX.params.gpxURI){
-                  GX.params.gpxURI = "http://www.corsproxy.com/rauljimenez.info/dev/goHero/routes/20140529_granada.gpx";
+                  GX.params.gpxURI = "sample-data/route.gpx";
                   console.log("Default route");
                 }
                 
