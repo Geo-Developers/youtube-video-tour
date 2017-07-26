@@ -3,10 +3,7 @@ try{
 
 window.loadGPX = function (){
   $.ajaxSetup({
-    crossDomain: true,
-    xhrFields: {
-      withCredentials: true
-    }
+    crossDomain: true
   });
 
   $.ajax({
