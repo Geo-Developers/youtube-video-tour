@@ -3,7 +3,7 @@ Youtube video tour
 
 This is an applitacion template for ArcGIS Online which displays a map route and a video at the same time. You can click over the route and the video will synchronize.	
 
-You can find it at [ArcGIS.com Repository](http://hhkaos.maps.arcgis.com/home/item.html?id=4d1c59bb91fa4db78c34b1069d35cc3f). See an example storymap called: [Granada Bike Tour](http://esri-es.github.io/youtube-video-tour/index.html?appid=96e7f5c46d124acb87643a80707be064)
+You can find it at [ArcGIS.com Repository](http://hhkaos.maps.arcgis.com/home/item.html?id=4d1c59bb91fa4db78c34b1069d35cc3f). See an example storymap called: [Granada Bike Tour](https://hhkaos.github.io/youtube-video-tour/index.html?appid=dfd3d90e66ed4aa9812cdf8729bf1404)
 
 <img src="/images/screenshot_desktop.png" style="width:100%">
 
